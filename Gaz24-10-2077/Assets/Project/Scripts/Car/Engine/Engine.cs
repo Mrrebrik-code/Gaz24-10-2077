@@ -5,15 +5,14 @@ using System;
 
 public class Engine : MonoBehaviour, IEngine
 {
-    private Settings _engineSettings;
-    public float Power { get; }
-    public float Weight { get; }
+    [SerializeField] private Settings _engineSettings;
+    public float Power { get; set; }
+    public float Weight { get; set; }
     public bool isEnabled { get; set; }
-
-    public Engine()
+    void Start()
     {
-        Power = 74;
-        Weight = 181;
+        Power = _engineSettings.Power;
+        Weight = _engineSettings.Weight;
         isEnabled = false;
     }
     public void StartEngine()
@@ -30,7 +29,7 @@ public class Engine : MonoBehaviour, IEngine
     public float MotorTorque()
     {
         //Простенькое - заменить
-        return 10000000000f;
+        return Power;
     }
 
     [Serializable]

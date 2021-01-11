@@ -18,16 +18,31 @@ public class CarModel : MonoBehaviour
     private Rigidbody rigedbodyCar;
     [SerializeField] private Vector3 centerOfMass;
 
-    private float maxSpeedCar;
-
     private void Start()
+    {
+        InitializedRigedbodyCar();
+    }
+
+    private void InitializedRigedbodyCar()
     {
         rigedbodyCar = GetComponent<Rigidbody>();
         rigedbodyCar.centerOfMass = centerOfMass;
+        rigedbodyCar.mass = CalculationWeightCar();
     }
     private void FixedUpdate()
     {
-        if(carMode == CarMode.Driving)
+        Debug.Log(Mathf.Round(rigedbodyCar.centerOfMass.y));
+        if (Input.GetKey(KeyCode.E))
+        {
+            rigedbodyCar.velocity = Vector3.zero;
+        }
+        if(Mathf.Round(rigedbodyCar.velocity.magnitude) <= 0)
+        {
+            contoller.isMoving = false;
+        }
+        else
+            contoller.isMoving = true;
+        if (carMode == CarMode.Driving)
         {
             contoller.MoveDriving(_wheels.FrontWheels, _wheels.BackWheels, typeDrive);
         }
