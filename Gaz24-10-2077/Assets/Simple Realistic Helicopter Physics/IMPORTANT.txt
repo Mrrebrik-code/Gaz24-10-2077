@@ -1,0 +1,12 @@
+helicopter model downloaded from:
+http://www.blendswap.com/blends/view/63699
+(LICENCE: CC Zero)
+
+and modified by me (Jailton Silva, Maginix):
+
+
+SOUNDS:
+GTA SA maverick: taken from Grand theft auto San Andreas, (maverick sound)
+
+breakRotor: http://soundbible.com/1765-Glass-Break.html
+LICENCE: Attr-Noncommercial 3.0
